@@ -1,5 +1,4 @@
-class OceanGrid extends Grid{
-
+public class OceanGrid {
     private Ship ship;
 
     public OceanGrid(){
@@ -14,6 +13,5 @@ class OceanGrid extends Grid{
     public ShotResult getShotResult(Shot shot){
         
     }
-
-
+    
 }
