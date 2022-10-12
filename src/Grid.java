@@ -1,11 +1,13 @@
 public class Grid {
     private Cell[][] cells = new Cell[10][10];
+    private Ship ship = null;
+    private CellState state = CellState.EMPTY;
     
 
     public Grid(){
         for (int row = 0; row < 10; row++) {
             for (int column = 0; column < 10; column++){
-                cells[row][column] = new Cell();
+                cells[row][column] = new Cell(ship, state);
             }
             
         }
