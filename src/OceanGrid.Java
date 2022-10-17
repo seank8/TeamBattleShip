@@ -1,4 +1,4 @@
-public class OceanGrid {
+public class OceanGrid extends Grid{
     private Ship ship;
 
     public OceanGrid(){

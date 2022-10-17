@@ -15,7 +15,7 @@ public class TargetGrid extends Grid{
 
     }
 
-    //
+    // return true or false
     public boolean shotnottakenyet(Shot shot){
         if();
 
