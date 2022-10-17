@@ -14,6 +14,13 @@ public class TargetGrid extends Grid{
         super.printGrid();
 
     }
+
+    //
+    public boolean shotnottakenyet(Shot shot){
+        if();
+
+    }
+    
   
 
     
