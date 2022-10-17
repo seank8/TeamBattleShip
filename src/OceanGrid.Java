@@ -41,7 +41,7 @@ public class OceanGrid extends Grid{
                         // return sunk
                     //else return hit
     }
-
+//shawn will put in shipbuiler
     public void placeShip(Ship ship){
 
     }
