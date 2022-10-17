@@ -30,7 +30,6 @@ public class ShipBuilder{
 
     public ArrayList<Coordinate> addCoords(int length, ShipOrientation orientation){
         ArrayList<Coordinate> shipCoords = new ArrayList<Coordinate>();
-        
         for (int i = 1; i < length; i++){
 
         }
