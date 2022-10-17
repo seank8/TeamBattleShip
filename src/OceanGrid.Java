@@ -29,7 +29,7 @@ public class OceanGrid extends Grid{
         }
         if(cs == CellState.OCCUPIED){
             if(cs == CellState.getState.OCCUPIED){
-                return ShotResult.SHOT; 
+                return ShotResult.HIT; 
             }
             return ShotResult.HIT;
         }
@@ -41,13 +41,9 @@ public class OceanGrid extends Grid{
                         // return sunk
                     //else return hit
     }
-
+//shawn will put in shipbuiler
     public void placeShip(Ship ship){
 
-    }
-
-    public ShotResult getShotResult(Shot shot){
-        
     }
     
 }
