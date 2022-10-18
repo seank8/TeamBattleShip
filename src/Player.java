@@ -39,15 +39,16 @@ public class Player {
                 return shot;
                 
             }else {
-            System.out.println("You have already taken the Shot");{
-
-            }
-            
-        }
-
-        
+            System.out.println("You have already taken the Shot");
+            }   
+        } 
     }
-}
+
+    public void placeShips(){
+        ShipBuilder builder = new ShipBuilder(oceanGrid);
+    }
+
+
 }
                 
              

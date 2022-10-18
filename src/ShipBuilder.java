@@ -18,10 +18,11 @@ public class ShipBuilder{
             } else{
                 origin = new Coordinate(rand.nextInt(11 - length), rand.nextInt(10));
             }
-
-            
             ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
             Ship ship = new Ship(name, name.getLength(), coordinates);
+            for (Coordinate coordinate: coordinates){
+                changeCell(ship, coordinate);
+            }
 
             ships.add(ship);
         }
@@ -48,6 +49,17 @@ public class ShipBuilder{
 
         return shipCoords;
 
+        
+    }
+
+    public void changeCell(Ship ship, Coordinate coordinate){
+        int row = coordinate.getRow();
+        int column = coordinate.getColumn();
+
+        Cell cell = ocean.cells[row][column];
+
+        cell.setShip(ship);
+        cell.setState(CellState.OCCUPIED);
         
     }
 

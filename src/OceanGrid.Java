@@ -35,15 +35,9 @@ public class OceanGrid extends Grid{
                 return ShotResult.HIT;
             }
         } 
-           
-            //Occupied = 
-                    // check if ship is sunk
-                        // return sunk
-                    //else return hit
+        
     }
-    //shawn will put in shipbuiler
-    public void placeShip(Ship ship){
-
-    }
+    
+   
     
 }
