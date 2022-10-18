@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class ShipBuilder{
     private ArrayList<Ship> ships = new ArrayList<Ship>();
-    private OceanGrid ocean;
+    protected OceanGrid ocean;
     private Random rand = new Random();
     private Coordinate origin;
    
@@ -20,7 +20,7 @@ public class ShipBuilder{
             }
 
             
-            ArrayList<Coordinate> coordinates = addCoords(name.getLength(), ShipOrientation.randomOrientation());
+            ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
             Ship ship = new Ship(name, name.getLength(), coordinates);
 
             ships.add(ship);
@@ -28,16 +28,23 @@ public class ShipBuilder{
 
     }
 
-    public ArrayList<Coordinate> addCoords(int length, ShipOrientation orientation){
+    public ArrayList<Coordinate> addCoords(int length, ShipOrientation orientation, Coordinate origin){
         ArrayList<Coordinate> shipCoords = new ArrayList<Coordinate>();
+        int nextColumn = origin.getColumn();
+        int nextRow = origin.getRow();
         for (int i = 1; i < length; i++){
+            if (orientation == ShipOrientation.HORIZONTAL){
+                nextColumn++;
+                shipCoords.add(new Coordinate(nextRow, nextColumn));
+            }else{
+                if (orientation == ShipOrientation.VERTICAL){
+                    nextRow++;
+                    shipCoords.add(new Coordinate(nextRow, nextColumn));
+
+            }
+        }
 
         }
-        
-
-
-
-
 
         return shipCoords;
 

@@ -35,8 +35,9 @@ public class Player {
                //continue while loop 
                continue;
             }
-            if (targetGrid.shotnottakenyet(shot)){;
-            break;
+            if (targetGrid.shotnottakenyet(shot)){
+                return shot;
+                
             }else {
             System.out.println("You have already taken the Shot");{
 
@@ -44,7 +45,7 @@ public class Player {
             
         }
 
-        return shot;
+        
     }
 }
 }
