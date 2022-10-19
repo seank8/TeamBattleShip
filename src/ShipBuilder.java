@@ -6,44 +6,55 @@ public class ShipBuilder{
     protected OceanGrid ocean;
     private Random rand = new Random();
     private Coordinate origin;
+    private ArrayList<Coordinate> usedCoords = new ArrayList<Coordinate>();
    
 
     public ShipBuilder(OceanGrid ocean){
         //repeat making of ship 5 times(1 for each ship)
         for (ShipType name : ShipType.values()){
-            ShipOrientation orientation = ShipOrientation.randomOrientation();
-            int length = name.getLength();
-            if (orientation == ShipOrientation.HORIZONTAL){
-                origin = new Coordinate(rand.nextInt(10), rand.nextInt(11 - length));
-            } else{
-                origin = new Coordinate(rand.nextInt(11 - length), rand.nextInt(10));
+            while(true){
+                ShipOrientation orientation = ShipOrientation.randomOrientation();
+                int length = name.getLength();
+                if (orientation == ShipOrientation.HORIZONTAL){
+                    origin = new Coordinate(rand.nextInt(10), rand.nextInt(11 - length));
+                } else{
+                    origin = new Coordinate(rand.nextInt(11 - length), rand.nextInt(10));
+                }
+                ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
+                Ship ship = new Ship(name, name.getLength(), coordinates);
+                for (Coordinate coordinate: coordinates){
+                    changeCell(ship, coordinate);
+                }
+                if(verifyCoordsMap(coordinates) == false){
+                    continue;
+                }
+                if (verifyCoordsShips(coordinates, usedCoords) == false){
+                    continue;
+                }else{
+                    usedCoords.addAll(coordinates);
+                    ships.add(ship);
+                    break;
+                }
             }
-            ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
-            Ship ship = new Ship(name, name.getLength(), coordinates);
-            for (Coordinate coordinate: coordinates){
-                changeCell(ship, coordinate);
-            }
-
-            ships.add(ship);
         }
-
     }
 
     public ArrayList<Coordinate> addCoords(int length, ShipOrientation orientation, Coordinate origin){
         ArrayList<Coordinate> shipCoords = new ArrayList<Coordinate>();
+        shipCoords.add(origin);
         int nextColumn = origin.getColumn();
         int nextRow = origin.getRow();
+        
         for (int i = 1; i < length; i++){
             if (orientation == ShipOrientation.HORIZONTAL){
                 nextColumn++;
                 shipCoords.add(new Coordinate(nextRow, nextColumn));
+                
             }else{
-                if (orientation == ShipOrientation.VERTICAL){
-                    nextRow++;
-                    shipCoords.add(new Coordinate(nextRow, nextColumn));
-
+                nextRow++;
+                shipCoords.add(new Coordinate(nextRow, nextColumn));
+                
             }
-        }
 
         }
 
@@ -61,6 +72,29 @@ public class ShipBuilder{
         cell.setShip(ship);
         cell.setState(CellState.OCCUPIED);
         
+    }
+
+    public boolean verifyCoordsShips(ArrayList<Coordinate> newCoords, ArrayList<Coordinate> usedCoords){
+        for(Coordinate newC : newCoords){
+            for(Coordinate used : usedCoords){
+                if (newC.equals(used)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean verifyCoordsMap(ArrayList<Coordinate> coordinates){
+        for(Coordinate i : coordinates){
+            int column = i.getColumn();
+            int row = i.getRow();
+            if(column > 10 || column < 1 || row > 10 || row < 1){
+                return false;
+            }
+        }
+        return true;
+
     }
 
     

@@ -13,7 +13,7 @@ public class OceanGrid extends Grid{
 
     }
     
-    public ShotResult receiveShot(Shot shot) throws Exception{
+    public ShotResult receiveShot(Shot shot) {
         //get corrdinates from shot row/column
         int r = shot.getRow();
         int c = shot.getColumn();
