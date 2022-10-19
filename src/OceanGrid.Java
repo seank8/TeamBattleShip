@@ -1,5 +1,5 @@
 public class OceanGrid extends Grid{
-    private Ship ship;
+    
 
     public OceanGrid(){
         super();
@@ -13,7 +13,7 @@ public class OceanGrid extends Grid{
 
     }
     
-    public ShotResult receiveShot(Shot shot){
+    public ShotResult receiveShot(Shot shot) {
         //get corrdinates from shot row/column
         int r = shot.getRow();
         int c = shot.getColumn();
@@ -26,28 +26,18 @@ public class OceanGrid extends Grid{
         //make descion 
         if(cs == CellState.EMPTY){
             return ShotResult.MISS;
-        }
-        if(cs == CellState.OCCUPIED){
-            if(cs == CellState.getState.OCCUPIED){
-                return ShotResult.SHOT; 
+        }else{
+            Ship ship = cell.getShip();
+            ship.registerHit();
+            if(ship.isSunk() == true){
+                return ShotResult.SUNK;
+            } else{
+                return ShotResult.HIT;
             }
-            return ShotResult.HIT;
-        }
-           if(cs == CellState.OCCUPIED){
-
-           }
-            //Occupied = 
-                    // check if ship is sunk
-                        // return sunk
-                    //else return hit
-    }
-
-    public void placeShip(Ship ship){
-
-    }
-
-    public ShotResult getShotResult(Shot shot){
+        } 
         
     }
+    
+   
     
 }

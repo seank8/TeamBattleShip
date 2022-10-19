@@ -1,5 +1,5 @@
 public class Grid {
-    private Cell[][] cells = new Cell[10][10];
+    protected Cell[][] cells = new Cell[10][10];
     private Ship ship = null;
     private CellState state = CellState.EMPTY;
     
