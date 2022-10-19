@@ -50,6 +50,12 @@ public class Player {
     }
 
 
+    public ShotResult recieveShot(Shot shot){
+        return oceanGrid.receiveShot(shot);
+    }
+
+    
+
 }
                 
              

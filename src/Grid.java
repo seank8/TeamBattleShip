@@ -41,4 +41,36 @@ public class Grid {
 
     }
 
+    protected Cell getCell(Shot shot){
+        int r = shot.getRow();
+        int c = shot.getColumn();
+
+        //use to find cell at coordinate
+        Cell cell = cells[r][c];
+        return cell;
+    }
+
+    protected CellState getCellState(Shot shot){
+        
+
+        //use to find cell at coordinate
+        Cell cell = getCell(shot);
+
+        //get state of cell, empyty or occupied
+        CellState cs = cell.getState();
+        return cs;
+
+    }
+
+    protected void setCellState(Shot shot, CellState state){
+        
+
+        //use to find cell at coordinate
+        Cell cell = getCell(shot);
+
+        //get state of cell, empyty or occupied
+        cell.setState(state);
+
+    }
+
 }

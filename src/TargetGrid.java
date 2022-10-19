@@ -20,6 +20,12 @@ public class TargetGrid extends Grid{
         if();
 
     }
+
+    public void receiveShotResult(ShotResult result, Shot shot){
+        if (result == ShotResult.HIT){
+            
+        }
+    }
     
   
 
