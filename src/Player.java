@@ -36,7 +36,7 @@ public class Player {
                //continue while loop 
                continue;
             }
-            if (targetGrid.shotnottakenyet(shot)){
+            if (targetGrid.isShotValid(shot)){
                 return shot;
                 
             }else {
