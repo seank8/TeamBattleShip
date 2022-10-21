@@ -36,7 +36,7 @@ public class Player {
         oceanGrid.printGrid();
        
         while (true){
-           String input = ConsoleHelper.getInput("take a shot");
+           String input = ConsoleHelper.getInput("Take a Shot> ");
             try {
                 
                 shot  = new Shot(input);
