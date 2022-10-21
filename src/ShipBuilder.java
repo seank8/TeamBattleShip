@@ -22,15 +22,16 @@ public class ShipBuilder{
                 }
                 ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
                 Ship ship = new Ship(name, name.getLength(), coordinates);
-                for (Coordinate coordinate: coordinates){
-                    changeCell(ship, coordinate);
-                }
+                
                 if(verifyCoordsMap(coordinates) == false){
                     continue;
                 }
                 if (verifyCoordsShips(coordinates, usedCoords) == false){
                     continue;
                 }else{
+                    for (Coordinate coordinate: coordinates){
+                        changeCell(ship, coordinate);
+                    }
                     usedCoords.addAll(coordinates);
                     ships.add(ship);
                     break;
