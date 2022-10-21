@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 
-public class Game extends Grid {
+public class Game {
     private ArrayList<Player> players;
+    private Player player1;
+    private Player player2;
 
     public void play(){
-        //Print Target Grid
-       
-        System.out.println("Target Grid");
-        super.printGrid();
+        for(Player player: players){
+            player.placeShips();
+        }
 
-        // print ocean grid
-        System.out.println("Ocean Grid");
-        super.printGrid();
+        player1.oceanGrid.printGrid();
+        player1.targetGrid.printGrid();
+
+        player1.takeShot();
+        
 
     } 
 
