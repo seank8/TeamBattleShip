@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Player> players;
+    private ArrayList<Player> players =new ArrayList<Player>();
     private Player player1;
     private Player player2;
 
     public void play(){
+        launchScreen();
+
         for(Player player: players){
             player.placeShips();
         }
-
+        
         player1.oceanGrid.printGrid();
         player1.targetGrid.printGrid();
 
@@ -20,15 +22,18 @@ public class Game {
 
     public void launchScreen(){
         String entry = startupMenu();
-        if (entry == "1"){
+        if (entry.equals("1")){
             String entry2 = newgameMenu();
-            if (entry2 == "1"){
-                for( int i = 0; i > 2 ; i++){
-                    String name = ConsoleHelper.getInput("Please enter name for Player 1: ");
-                    Player player = new Player(name);
-                    players.add(player);
-                }
-                play();
+            if (entry2.equals("1")){
+                
+                String name = ConsoleHelper.getInput("Please enter name for Player 1: ");
+                player1 = new Player(name);
+                players.add(player1);
+                String name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
+                player2 = new Player(name2);
+                players.add(player2);
+                
+                
             }else{
 
             }

@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class ShipBuilder{
     private ArrayList<Ship> ships = new ArrayList<Ship>();
-    protected OceanGrid ocean;
+    protected OceanGrid ocean = new OceanGrid();
     private Random rand = new Random();
     private Coordinate origin;
     private ArrayList<Coordinate> usedCoords = new ArrayList<Coordinate>();
