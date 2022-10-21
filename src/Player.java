@@ -10,7 +10,7 @@ public class Player {
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
     private ArrayList<Coordinate> coordinates;
-    private ShipBuilder builder;
+    
     protected ShipBuilder builder;
 
     public Player(String name) {
@@ -46,8 +46,7 @@ public class Player {
                //continue while loop 
                continue;
             }
-            if (targetGrid.isShotValid(shot)){;
-            break;
+            
             if (targetGrid.isShotValid(shot)){
                 return shot;
                 
@@ -55,14 +54,9 @@ public class Player {
             System.out.printf("You have already taken the Shot at %s%n", input);
             
             }
+        }
             
         }
-
-        return shot;
-    }
-    public ShotResult receiveShot(Shot shot){
-        return oceanGrid.receiveShot(shot);
-    }
 
     public void placeShips(){
         builder = new ShipBuilder(oceanGrid);
@@ -73,19 +67,5 @@ public class Player {
         return oceanGrid.receiveShot(shot);
     }
 
-    
-
 }
                 
-             
-             
-            
-
-               
-            
-        
-
-        
-    
-
-}
