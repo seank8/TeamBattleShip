@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Ship {
     private ShipType ship;
     private int hitCount;
-    private ArrayList<Coordinate> coordinates;
-    private ShipBuilder builder;
+    protected ArrayList<Coordinate> coordinates;
+    protected ShipBuilder builder;
     
 
     public Ship(ShipType ship, int hitCount, ArrayList<Coordinate> coordinates){

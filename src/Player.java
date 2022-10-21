@@ -5,7 +5,7 @@ public class Player {
     private Shot shot;
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
-    private ShipBuilder builder;
+    protected ShipBuilder builder;
 
     public Player(String name) {
         this.name = name;
