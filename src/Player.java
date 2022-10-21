@@ -1,20 +1,30 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.awt.Point;
+import java.util.Map.Entry;
+
 
 public class Player {
     private String name;
     private Shot shot;
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
-    private ShipBuilder builder;
+    private ArrayList<Coordinate> coordinates;
+    
+    protected ShipBuilder builder;
 
     public Player(String name) {
         this.name = name;
     }
 
+    public void setOceanGrid(OceanGrid grid){
+        this.oceanGrid = grid;
+    }
     public String getName(){
         return name;
     }
-
+    
+   
     // row and column Position bool, random do and while return
 
     public Shot takeShot(){
@@ -36,14 +46,17 @@ public class Player {
                //continue while loop 
                continue;
             }
+            
             if (targetGrid.isShotValid(shot)){
                 return shot;
                 
             }else {
-            System.out.println("You have already taken the Shot");
-            }   
-        } 
-    }
+            System.out.printf("You have already taken the Shot at %s%n", input);
+            
+            }
+        }
+            
+        }
 
     public void placeShips(){
         builder = new ShipBuilder(oceanGrid);
@@ -54,20 +67,5 @@ public class Player {
         return oceanGrid.receiveShot(shot);
     }
 
-    
-
 }
                 
-             
-             
-            
-
-               
-            
-        
-
-        
-    
-
-        
-    
