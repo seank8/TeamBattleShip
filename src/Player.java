@@ -5,7 +5,7 @@ public class Player {
     private Shot shot;
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
-    private ShipBuilder builder;
+    protected ShipBuilder builder;
 
     public Player(String name) {
         this.name = name;
@@ -36,7 +36,7 @@ public class Player {
                //continue while loop 
                continue;
             }
-            if (targetGrid.shotnottakenyet(shot)){
+            if (targetGrid.isShotValid(shot)){
                 return shot;
                 
             }else {
@@ -49,6 +49,12 @@ public class Player {
         builder = new ShipBuilder(oceanGrid);
     }
 
+
+    public ShotResult recieveShot(Shot shot){
+        return oceanGrid.receiveShot(shot);
+    }
+
+    
 
 }
                 
