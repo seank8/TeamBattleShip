@@ -33,6 +33,14 @@ public class TargetGrid extends Grid {
         }
         return true;
     }
+<<<<<<< HEAD
+        
+} 
+      
+         
+    
+=======
+>>>>>>> 4d6dc1b5139a050cd143203c3484a9c7014dfea4
 
     public void receiveShotResult(ShotResult result, Shot shot) {
         if (result == ShotResult.HIT) {
