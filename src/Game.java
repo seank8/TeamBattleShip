@@ -15,7 +15,11 @@ public class Game {
         player1.oceanGrid.printGrid();
         player1.targetGrid.printGrid();
 
-        player1.takeShot();
+        Shot shot = player1.takeShot();
+
+        ShotResult result = player2.recieveShot(shot);
+
+        System.out.println(result);
         
 
     } 
