@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 
-public class Game {
+public class Game extends Grid {
     private ArrayList<Player> players;
 
     public void play(){
+        //Print Target Grid
+       
+        System.out.println("Target Grid");
+        super.printGrid();
+
+        // print ocean grid
+        System.out.println("Ocean Grid");
+        super.printGrid();
 
     } 
 

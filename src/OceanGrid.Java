@@ -14,21 +14,17 @@ public class OceanGrid extends Grid{
     }
     
     public ShotResult receiveShot(Shot shot) {
+        Cell cell = getCell(shot);
         //get corrdinates from shot row/column
-        int r = shot.getRow();
-        int c = shot.getColumn();
-
-        //use to find cell at coordinate
-        Cell cell = cells[r][c];
-
-        //get state of cell, empyty or occupied
-        CellState cs = cell.getState();
+        CellState cs = getCellState(shot);
         //make descion 
         if(cs == CellState.EMPTY){
+            setCellState(shot, CellState.MISS);
             return ShotResult.MISS;
         }else{
             Ship ship = cell.getShip();
             ship.registerHit();
+            cell.setState(CellState.HIT);
             if(ship.isSunk() == true){
                 return ShotResult.SUNK;
             } else{
