@@ -3,13 +3,13 @@ import java.util.Random;
 
 public class ShipBuilder{
     private ArrayList<Ship> ships = new ArrayList<Ship>();
-    protected OceanGrid ocean = new OceanGrid();
+    
     private Random rand = new Random();
     private Coordinate origin;
     private ArrayList<Coordinate> usedCoords = new ArrayList<Coordinate>();
    
 
-    public ShipBuilder(OceanGrid ocean){
+    public ShipBuilder(){
         //repeat making of ship 5 times(1 for each ship)
         for (ShipType name : ShipType.values()){
             while(true){
@@ -29,9 +29,7 @@ public class ShipBuilder{
                 if (verifyCoordsShips(coordinates, usedCoords) == false){
                     continue;
                 }else{
-                    for (Coordinate coordinate: coordinates){
-                        changeCell(ship, coordinate);
-                    }
+                    
                     usedCoords.addAll(coordinates);
                     ships.add(ship);
                     break;
@@ -64,17 +62,7 @@ public class ShipBuilder{
         
     }
 
-    public void changeCell(Ship ship, Coordinate coordinate){
-        int row = coordinate.getRow();
-        int column = coordinate.getColumn();
-
-        Cell cell = ocean.cells[row][column];
-
-        cell.setShip(ship);
-        cell.setState(CellState.OCCUPIED);
-        
-    }
-
+  
     public boolean verifyCoordsShips(ArrayList<Coordinate> newCoords, ArrayList<Coordinate> usedCoords){
         for(Coordinate newC : newCoords){
             for(Coordinate used : usedCoords){
