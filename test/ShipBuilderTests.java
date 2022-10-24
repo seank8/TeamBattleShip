@@ -11,7 +11,7 @@ public class ShipBuilderTests {
         ShipBuilder sb = new ShipBuilder();
         // make a coordinate, orientation, and length for ship
         Coordinate c = new Coordinate(3, 4);
-        ShipOrientation so = ShipOrientation.VERTICAL;
+        ShipOrientation so = ShipOrientation.HORIZONTAL;
         int len = 3;
 
         // variable = shipbuilder.makeCoordinates(coord, orient, length)
@@ -20,10 +20,21 @@ public class ShipBuilderTests {
         // make expected coordinates
         ArrayList<Coordinate> expected = new ArrayList<Coordinate>();
         expected.add(new Coordinate(3, 4));
-        expected.add(new Coordinate(4, 4));
-        expected.add(new Coordinate(5, 5));
+        expected.add(new Coordinate(3, 5));
+        expected.add(new Coordinate(3, 6));
 
         // verify that method coordinates match expected
-        assert(expected, result);
+        for (int i = 0; i < len; i++) {
+            Coordinate coordinate = result.get(i);
+            int columnR = coordinate.getColumn();
+            int rowR = coordinate.getRow();
+            
+            Coordinate coordinate2 = expected.get(i);
+            int columnA = coordinate2.getColumn();
+            int rowA = coordinate2.getRow();
+            assertEquals(columnA, columnR);
+            assertEquals(rowA, rowR);
+            
+        }
     }
 }

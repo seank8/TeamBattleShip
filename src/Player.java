@@ -59,7 +59,7 @@ public class Player {
         }
 
     public void placeShips(){
-        builder = new ShipBuilder(oceanGrid);
+        builder = new ShipBuilder();
     }
 
 
