@@ -11,10 +11,10 @@ public class Game {
         for(Player player: players){
             player.placeShips();
         }
-        
-        player1.oceanGrid.printGrid();
-        player1.targetGrid.printGrid();
 
+        player1.targetGrid.printGrid();
+        player1.oceanGrid.printGrid();
+        
         Shot shot = player1.takeShot();
 
         ShotResult result = player2.recieveShot(shot);

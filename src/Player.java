@@ -28,12 +28,6 @@ public class Player {
     // row and column Position bool, random do and while return
 
     public Shot takeShot(){
-        //present target grid and ocean grid
-         // get shot cordinates from user
-         //create shot object
-        //return shot object
-        targetGrid.printGrid();
-        oceanGrid.printGrid();
        
         while (true){
            String input = ConsoleHelper.getInput("Take a Shot> ");
