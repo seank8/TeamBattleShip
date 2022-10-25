@@ -24,6 +24,10 @@ public class Ship {
         }
     }
 
+    public ArrayList<Coordinate> getCoordinates(){
+        return coordinates;
+    }
+
 
     
 }

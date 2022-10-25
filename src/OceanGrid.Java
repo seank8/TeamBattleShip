@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class OceanGrid extends Grid{
     
 
@@ -90,6 +92,12 @@ public class OceanGrid extends Grid{
             }
         } 
         
+    }
+    protected void setShipCells(ArrayList<Coordinate> coordinates){
+        for (Coordinate coordinate : coordinates) {
+            
+            setCellState(coordinate, CellState.OCCUPIED);
+        }
     }
     
    

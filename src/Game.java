@@ -9,7 +9,7 @@ public class Game {
         launchScreen();
 
         for(Player player: players){
-            player.placeShips();
+            player.placeShips(player.oceanGrid);
         }
 
         player1.targetGrid.printGrid();

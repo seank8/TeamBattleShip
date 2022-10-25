@@ -86,5 +86,9 @@ public class ShipBuilder{
 
     }
 
+    public ArrayList<Ship> getShips(){
+        return ships;
+    }
+
     
 }

@@ -1,3 +1,4 @@
+
 public class Grid {
     protected Cell[][] cells = new Cell[10][10];
     private Ship ship = null;
@@ -83,12 +84,31 @@ public class Grid {
         Cell cell = cells[r][c];
         return cell;
     }
+    protected Cell getCell(Coordinate coordinate){
+        int r = coordinate.getRow();
+        int c = coordinate.getColumn();
+
+        //use to find cell at coordinate
+        Cell cell = cells[r][c];
+        return cell;
+    }
 
     protected CellState getCellState(Shot shot){
         
 
         //use to find cell at coordinate
         Cell cell = getCell(shot);
+
+        //get state of cell, empyty or occupied
+        CellState cs = cell.getState();
+        return cs;
+
+    }
+    protected CellState getCellState(Coordinate coordinate){
+        
+
+        //use to find cell at coordinate
+        Cell cell = getCell(coordinate);
 
         //get state of cell, empyty or occupied
         CellState cs = cell.getState();
@@ -106,5 +126,18 @@ public class Grid {
         cell.setState(state);
 
     }
+
+    protected void setCellState(Coordinate coordinate, CellState state){
+        
+
+        //use to find cell at coordinate
+        Cell cell = getCell(coordinate);
+
+        //get state of cell, empyty or occupied
+        cell.setState(state);
+
+    }
+
+    
 
 }
