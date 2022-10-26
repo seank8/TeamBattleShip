@@ -15,7 +15,7 @@ public class Coordinate {
         return column;
     }
 
-    @Override
+    /*@Override
     public boolean equals(Coordinate coordinate){
         int column = coordinate.getColumn();
         int row = coordinate.getRow();
@@ -23,8 +23,8 @@ public class Coordinate {
             return true;
         } else{
             return false;
-        }
+        }*/
 
-    }
+    //}
     
 }
