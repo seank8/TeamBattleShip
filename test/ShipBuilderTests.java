@@ -37,4 +37,10 @@ public class ShipBuilderTests {
             
         }
     }
+
+    @Test
+    public void testVerifyCoords(){
+        
+
+    }
 }
