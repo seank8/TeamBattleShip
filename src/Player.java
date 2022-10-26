@@ -9,7 +9,7 @@ public class Player {
     private Shot shot;
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
-    private ArrayList<Coordinate> coordinates;
+    
     
     protected ShipBuilder builder;
 
@@ -55,7 +55,7 @@ public class Player {
     public void placeShips(OceanGrid oceanGrid){
         ShipBuilder builder = new ShipBuilder();
         for (Ship ship : builder.getShips()) {
-            oceanGrid.setShipCells(ship.coordinates);
+            oceanGrid.setShipCells(ship);
         }
 
     }

@@ -14,5 +14,17 @@ public class Coordinate {
     public int getColumn(){
         return column;
     }
+
+    @Override
+    public boolean equals(Coordinate coordinate){
+        int column = coordinate.getColumn();
+        int row = coordinate.getRow();
+        if(this.getColumn() == column && this.getRow() == row){
+            return true;
+        } else{
+            return false;
+        }
+
+    }
     
 }

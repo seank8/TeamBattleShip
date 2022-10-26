@@ -93,10 +93,13 @@ public class OceanGrid extends Grid{
         } 
         
     }
-    protected void setShipCells(ArrayList<Coordinate> coordinates){
-        for (Coordinate coordinate : coordinates) {
+    protected void setShipCells(Ship ship){
+
+        for (Coordinate coordinate : ship.coordinates) {
             
             setCellState(coordinate, CellState.OCCUPIED);
+            Cell cell = getCell(coordinate);
+            cell.setShip(ship);
         }
     }
     

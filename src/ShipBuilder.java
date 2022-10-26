@@ -21,14 +21,13 @@ public class ShipBuilder{
                     origin = new Coordinate(rand.nextInt(11 - length), rand.nextInt(10));
                 }
                 ArrayList<Coordinate> coordinates = addCoords(name.getLength(),orientation, origin);
-                Ship ship = new Ship(name, name.getLength(), coordinates);
-                
                 if(verifyCoordsMap(coordinates) == false){
                     continue;
                 }
                 if (verifyCoordsShips(coordinates, usedCoords) == false){
                     continue;
                 }else{
+                    Ship ship = new Ship(name, name.getLength(), coordinates);
                     
                     usedCoords.addAll(coordinates);
                     ships.add(ship);
