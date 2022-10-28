@@ -4,14 +4,18 @@ public class Game {
     private ArrayList<Player> players =new ArrayList<Player>();
     private Player player1;
     private Player player2;
+    // note from John - you don't need the player1 and player2 lines... your players are being kept in the players collection
+    // you DO need an instance variable to keep track of which index is the current player (maybe currentPlayerIndex?)
+
 
     public void play(){
         launchScreen();
 
         for(Player player: players){
-            player.placeShips(player.oceanGrid);
+            player.placeShips(player.oceanGrid); // shouldn't know about player's oceangrid
         }
 
+        // we shouldn't know about or be able to reach into players and get their grids!  Lines below no good.
         player1.targetGrid.printGrid();
         player1.oceanGrid.printGrid();
         
@@ -31,10 +35,10 @@ public class Game {
             if (entry2.equals("1")){
                 
                 String name = ConsoleHelper.getInput("Please enter name for Player 1: ");
-                player1 = new Player(name);
+                player1 = new Player(name);  // refactor
                 players.add(player1);
                 String name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
-                player2 = new Player(name2);
+                player2 = new Player(name2);  // refactor
                 players.add(player2);
                 
                 
