@@ -14,15 +14,12 @@ public class Game {
         players.add(new Player(name1));
         players.add(new Player(name2));
 
-
         for(Player player: players){
             player.placeShips(); 
         }
  
-        
         players.get(currentPlayerIndex).printOceanGrid();
         players.get(currentPlayerIndex).printTargetGrid();
-       
         
         Shot shot = players.get(currentPlayerIndex).takeShot();
 
@@ -30,7 +27,6 @@ public class Game {
 
         System.out.println(result);
         
-
     } 
 
     public void launchScreen(){
