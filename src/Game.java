@@ -18,8 +18,9 @@ public class Game {
             player.placeShips(); 
         }
  
-        players.get(currentPlayerIndex).printOceanGrid();
         players.get(currentPlayerIndex).printTargetGrid();
+        players.get(currentPlayerIndex).printOceanGrid();
+
         
         Shot shot = players.get(currentPlayerIndex).takeShot();
 
@@ -40,7 +41,9 @@ public class Game {
                 name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
                 
             }else{
+                name1 = ConsoleHelper.getInput("Please enter name for Player: ");
 
+                name2 = "JohnBot Infinity v2.3";
             }
         }else{
 
