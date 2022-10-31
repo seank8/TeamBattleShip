@@ -1,27 +1,32 @@
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Player> players =new ArrayList<Player>();
-    private Player player1;
-    private Player player2;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private int currentPlayerIndex = 0;
+    private String name1;
+    private String name2;
     // note from John - you don't need the player1 and player2 lines... your players are being kept in the players collection
     // you DO need an instance variable to keep track of which index is the current player (maybe currentPlayerIndex?)
 
 
     public void play(){
         launchScreen();
+        players.add(new Player(name1));
+        players.add(new Player(name2));
+
 
         for(Player player: players){
-            player.placeShips(player.oceanGrid); // shouldn't know about player's oceangrid
+            player.placeShips(); 
         }
-
-        // we shouldn't know about or be able to reach into players and get their grids!  Lines below no good.
-        player1.targetGrid.printGrid();
-        player1.oceanGrid.printGrid();
+ 
         
-        Shot shot = player1.takeShot();
+        players.get(currentPlayerIndex).printOceanGrid();
+        players.get(currentPlayerIndex).printTargetGrid();
+       
+        
+        Shot shot = players.get(currentPlayerIndex).takeShot();
 
-        ShotResult result = player2.recieveShot(shot);
+        ShotResult result = players.get(currentPlayerIndex + 1).recieveShot(shot);
 
         System.out.println(result);
         
@@ -34,13 +39,9 @@ public class Game {
             String entry2 = newgameMenu();
             if (entry2.equals("1")){
                 
-                String name = ConsoleHelper.getInput("Please enter name for Player 1: ");
-                player1 = new Player(name);  // refactor
-                players.add(player1);
-                String name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
-                player2 = new Player(name2);  // refactor
-                players.add(player2);
+                name1 = ConsoleHelper.getInput("Please enter name for Player 1: ");
                 
+                name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
                 
             }else{
 

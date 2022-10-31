@@ -16,6 +16,12 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+    public void printOceanGrid(){
+        oceanGrid.printGrid();
+    }
+    public void printTargetGrid(){
+        targetGrid.printGrid();
+    }
 
     public void setOceanGrid(OceanGrid grid){
         this.oceanGrid = grid;
@@ -52,7 +58,7 @@ public class Player {
             
         }
 
-    public void placeShips(OceanGrid oceanGrid){
+    public void placeShips(){
         ShipBuilder builder = new ShipBuilder();
         for (Ship ship : builder.getShips()) {
             oceanGrid.setShipCells(ship);
