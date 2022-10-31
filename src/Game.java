@@ -3,16 +3,15 @@ import java.util.ArrayList;
 public class Game {
     private ArrayList<Player> players = new ArrayList<Player>();
     private int currentPlayerIndex = 0;
-    private String name1;
-    private String name2;
+    
     // note from John - you don't need the player1 and player2 lines... your players are being kept in the players collection
     // you DO need an instance variable to keep track of which index is the current player (maybe currentPlayerIndex?)
 
 
     public void play(){
         launchScreen();
-        players.add(new Player(name1));
-        players.add(new Player(name2));
+        
+        
 
         for(Player player: players){
             player.placeShips(); 
@@ -36,14 +35,16 @@ public class Game {
             String entry2 = newgameMenu();
             if (entry2.equals("1")){
                 
-                name1 = ConsoleHelper.getInput("Please enter name for Player 1: ");
+                String name1 = ConsoleHelper.getInput("Please enter name for Player 1: ");
+                players.add(new Player(name1));
                 
-                name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
+                String name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
+                players.add(new Player(name2));
                 
             }else{
-                name1 = ConsoleHelper.getInput("Please enter name for Player: ");
+                String name1 = ConsoleHelper.getInput("Please enter name for Player: ");
 
-                name2 = "JohnBot Infinity v2.3";
+                String name2 = "JohnBot Infinity v2.3";
             }
         }else{
 
