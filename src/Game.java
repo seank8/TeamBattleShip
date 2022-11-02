@@ -9,14 +9,8 @@ public class Game {
 
 
     public void play(){
-        while(true){
-            //identify current player
-            //display player info
-        }
+        
         launchScreen();
-<<<<<<< HEAD
-    
-=======
         
         IPlayer currentP = players.get(currentPlayerIndex);
         IPlayer otherP;
@@ -26,7 +20,6 @@ public class Game {
             otherP = players.get(0);
         }
         
->>>>>>> 163b6558b42b6e3c9d2f54a18d812c99fb6c3f3f
 
         
 
@@ -44,13 +37,6 @@ public class Game {
 
         System.out.println(result);
         
-<<<<<<< HEAD
-
-
-       // private void display playerinfo(Player Player)
-
-=======
->>>>>>> 163b6558b42b6e3c9d2f54a18d812c99fb6c3f3f
     } 
 
     //consuole input hit enter before printing the turn
