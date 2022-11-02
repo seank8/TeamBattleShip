@@ -15,8 +15,20 @@ public class Coordinate {
         return column;
     }
 
-    
-    public boolean equals(Coordinate coordinate){
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+
+        if(o == null){
+            return false;
+        }
+        if(!(o instanceof Coordinate)){
+            return false;
+        }
+        Coordinate coordinate = (Coordinate) o;
+
         int column = coordinate.getColumn();
         int row = coordinate.getRow();
         if(this.getColumn() == column && this.getRow() == row){
