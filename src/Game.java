@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Player> players = new ArrayList<Player>();
+    private ArrayList<IPlayer> players = new ArrayList<IPlayer>();
     private int currentPlayerIndex = 0;
     
     // note from John - you don't need the player1 and player2 lines... your players are being kept in the players collection
@@ -11,19 +11,28 @@ public class Game {
     public void play(){
         launchScreen();
         
+        IPlayer currentP = players.get(currentPlayerIndex);
+        IPlayer otherP;
+        if(currentPlayerIndex == 0){
+            otherP = players.get(1);
+        }else{
+            otherP = players.get(0);
+        }
         
 
-        for(Player player: players){
+        
+
+        for(IPlayer player: players){
             player.placeShips(); 
         }
  
-        players.get(currentPlayerIndex).printTargetGrid();
-        players.get(currentPlayerIndex).printOceanGrid();
+        currentP.printTargetGrid();
+        currentP.printOceanGrid();
 
         
-        Shot shot = players.get(currentPlayerIndex).takeShot();
+        Shot shot = currentP.takeshot();
 
-        ShotResult result = players.get(currentPlayerIndex + 1).recieveShot(shot);
+        ShotResult result = otherP.receiveShot(shot);
 
         System.out.println(result);
         
@@ -43,8 +52,10 @@ public class Game {
                 
             }else{
                 String name1 = ConsoleHelper.getInput("Please enter name for Player: ");
+                players.add(new Player(name1));
 
                 String name2 = "JohnBot Infinity v2.3";
+                players.add(new BOTPlayer(name2));
             }
         }else{
 

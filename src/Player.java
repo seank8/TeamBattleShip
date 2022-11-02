@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.util.Map.Entry;
 
 
-public class Player {
+public class Player implements IPlayer {
     private String name;
     private Shot shot;
     protected OceanGrid oceanGrid = new OceanGrid();
@@ -16,9 +16,11 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+    @Override
     public void printOceanGrid(){
         oceanGrid.printGrid();
     }
+    @Override
     public void printTargetGrid(){
         targetGrid.printGrid();
     }
@@ -33,8 +35,20 @@ public class Player {
    
     // row and column Position bool, random do and while return
 
-    public Shot takeShot(){
-       
+   
+    @Override
+    public void placeShips(){
+        ShipBuilder builder = new ShipBuilder();
+        for (Ship ship : builder.getShips()) {
+            oceanGrid.setShipCells(ship);
+        }
+
+    }
+
+
+    
+    @Override
+    public Shot takeshot() {
         while (true){
            String input = ConsoleHelper.getInput("Take a Shot> ");
             try {
@@ -55,20 +69,20 @@ public class Player {
             
             }
         }
-            
-        }
-
-    public void placeShips(){
-        ShipBuilder builder = new ShipBuilder();
-        for (Ship ship : builder.getShips()) {
-            oceanGrid.setShipCells(ship);
-        }
-
     }
-
-
-    public ShotResult recieveShot(Shot shot){
+    @Override
+    public ShotResult receiveShot(Shot shot) {
         return oceanGrid.receiveShot(shot);
+    }
+    @Override
+    public void receiveShotResult(Shot shot, ShotResult result) {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public boolean allShipsAreSunk() {
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }

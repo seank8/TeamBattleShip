@@ -12,4 +12,8 @@ public interface IPlayer {
     public void receiveShotResult(Shot shot, ShotResult result);
 
     public boolean allShipsAreSunk();
+
+    public void printOceanGrid();
+    
+    public void printTargetGrid();
 }
