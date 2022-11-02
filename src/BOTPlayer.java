@@ -35,14 +35,32 @@ public class BOTPlayer implements IPlayer{
 
     
     @Override
-    public Shot takeshot() {
-        // TODO Auto-generated method stub
-        return null;
+    public Shot takeshot() { //this is jsut copied from the player class, will need to be updated fo AI player.
+        while (true){
+           String input = ConsoleHelper.getInput("Take a Shot> ");
+            try {
+                
+                shot  = new Shot(input);
+            } catch (Exception e){
+                System.out.println("Invalid Shot");
+               // explain to user of an invalid shot
+               //continue while loop 
+               continue;
+            }
+            
+            if (targetGrid.isShotValid(shot)){
+                return shot;
+                
+            }else {
+            System.out.printf("You have already taken the Shot at %s%n", input);
+            
+            }
+        }
     }
+    
     @Override
     public ShotResult receiveShot(Shot shot) {
-        // TODO Auto-generated method stub
-        return null;
+        return oceanGrid.receiveShot(shot);
     }
     @Override
     public void receiveShotResult(Shot shot, ShotResult result) {
