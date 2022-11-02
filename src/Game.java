@@ -6,7 +6,12 @@ public class Game {
     private Player player2;
 
     public void play(){
+        while(true){
+            //identify current player
+            //display player info
+        }
         launchScreen();
+    
 
         for(Player player: players){
             player.placeShips(player.oceanGrid);
@@ -22,7 +27,13 @@ public class Game {
         System.out.println(result);
         
 
+
+       // private void display playerinfo(Player Player)
+
     } 
+
+    //consuole input hit enter before printing the turn
+    //code that pause the game for entry before game
 
     public void launchScreen(){
         String entry = startupMenu();
