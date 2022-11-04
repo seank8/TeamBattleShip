@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class BOTPlayer implements IPlayer{
     private String name;
     private Shot shot;
@@ -35,7 +37,16 @@ public class BOTPlayer implements IPlayer{
 
     
     @Override
-    public Shot takeShot() { 
+    public Shot takeshot() { 
+        Random random = new Random();
+        int column = random.nextInt(1, 11);
+        String letters = "ABCDEFGHIJ";
+        char[] rows = letters.toCharArray();
+        int rowLength = rows.length;
+        char row = rows[random.nextInt(rowLength)];
+        String input = "" + row + Integer.toString(column);
+        Shot shot = new Shot(input);
+        return shot;
         
         
     }
