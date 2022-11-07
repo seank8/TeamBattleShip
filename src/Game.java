@@ -41,6 +41,11 @@ public class Game {
             currentP.receiveShotResult(shot, result);
 
 
+            //Print updated target grid and ocean grid
+            //ask for player to press enter to go to next turn
+            //clear terminal 
+
+
             //check ships
             if(otherP.allShipsAreSunk() == true){
                 break;
