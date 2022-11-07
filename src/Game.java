@@ -11,16 +11,20 @@ public class Game {
     public void play(){
         
         launchScreen();
+        for(IPlayer player: players){
+            player.placeShips(); 
+        }
 
         while(true){ // game loop
 
             //start turn
-            for(IPlayer player: players){
-                player.placeShips(); 
-            }
+            
             IPlayer currentP = players.get(currentPlayerIndex);
 
             //send shot
+            currentP.printTargetGrid();
+            currentP.printOceanGrid();
+            System.out.println(currentP.getName() + " Take a Shot!");
             Shot shot = currentP.takeshot();
 
 
@@ -38,14 +42,19 @@ public class Game {
 
 
             //check ships
-            if(allShipsAreSunk() == true){
+            if(otherP.allShipsAreSunk() == true){
                 break;
+            }
+            if(currentPlayerIndex == 0){
+                ++currentPlayerIndex;
+            }else{
+                --currentPlayerIndex;
             }
 
 
+
     
-            currentP.printTargetGrid();
-            currentP.printOceanGrid();
+            
 
 
             System.out.println(result);
