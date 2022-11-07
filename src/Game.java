@@ -11,31 +11,47 @@ public class Game {
     public void play(){
         
         launchScreen();
-        
-        IPlayer currentP = players.get(currentPlayerIndex);
-        IPlayer otherP;
-        if(currentPlayerIndex == 0){
-            otherP = players.get(1);
-        }else{
-            otherP = players.get(0);
+
+        while(true){ // game loop
+
+            //start turn
+            for(IPlayer player: players){
+                player.placeShips(); 
+            }
+            IPlayer currentP = players.get(currentPlayerIndex);
+
+            //send shot
+            Shot shot = currentP.takeshot();
+
+
+            //return response
+
+            IPlayer otherP;
+            if(currentPlayerIndex == 0){
+                otherP = players.get(1);
+            }else{
+                otherP = players.get(0);
+            }
+            ShotResult result = otherP.receiveShot(shot);
+
+            currentP.receiveShotResult(shot, result);
+
+
+            //check ships
+            if(allShipsAreSunk() == true){
+                break;
+            }
+
+
+    
+            currentP.printTargetGrid();
+            currentP.printOceanGrid();
+
+
+            System.out.println(result);
+
         }
         
-
-        
-
-        for(IPlayer player: players){
-            player.placeShips(); 
-        }
- 
-        currentP.printTargetGrid();
-        currentP.printOceanGrid();
-
-        
-        Shot shot = currentP.takeshot();
-
-        ShotResult result = otherP.receiveShot(shot);
-
-        System.out.println(result);
         
     } 
 
@@ -85,7 +101,6 @@ public class Game {
         String entry = ConsoleHelper.getInput("> ");
         return entry;
     }
-
 
 
     
