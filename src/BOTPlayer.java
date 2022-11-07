@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class BOTPlayer implements IPlayer{
     private String name;
     private Shot shot;
@@ -35,27 +37,18 @@ public class BOTPlayer implements IPlayer{
 
     
     @Override
-    public Shot takeshot() { //this is jsut copied from the player class, will need to be updated fo AI player.
-        while (true){
-           String input = ConsoleHelper.getInput("Take a Shot> ");
-            try {
-                
-                shot  = new Shot(input);
-            } catch (Exception e){
-                System.out.println("Invalid Shot");
-               // explain to user of an invalid shot
-               //continue while loop 
-               continue;
-            }
-            
-            if (targetGrid.isShotValid(shot)){
-                return shot;
-                
-            }else {
-            System.out.printf("You have already taken the Shot at %s%n", input);
-            
-            }
-        }
+    public Shot takeshot() { 
+        Random random = new Random();
+        int column = random.nextInt(1, 11);
+        String letters = "ABCDEFGHIJ";
+        char[] rows = letters.toCharArray();
+        int rowLength = rows.length;
+        char row = rows[random.nextInt(rowLength)];
+        String input = "" + row + Integer.toString(column);
+        Shot shot = new Shot(input);
+        return shot;
+        
+        
     }
     
     @Override
