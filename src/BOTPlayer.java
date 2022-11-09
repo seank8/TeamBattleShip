@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class BOTPlayer implements IPlayer{
@@ -38,15 +41,35 @@ public class BOTPlayer implements IPlayer{
     
     @Override
     public Shot takeshot() { 
-        Random random = new Random();
-        int column = random.nextInt(1, 11);
-        String letters = "ABCDEFGHIJ";
-        char[] rows = letters.toCharArray();
-        int rowLength = rows.length;
-        char row = rows[random.nextInt(rowLength)];
-        String input = "" + row + Integer.toString(column);
-        Shot shot = new Shot(input);
-        return shot;
+        List<Shot> shotList = new ArrayList<Shot>();
+            String letters = "ABCDEFGHIJ";
+            char[] rows = letters.toCharArray();
+             
+            for(int i = 0; i < 10; i++)
+            {
+            for(int j = 1; j < 11; j++)
+            {
+            char row = rows[i];
+            int column = j;
+            try {
+            shotList.add(new Shot("" + row + column));
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+            }
+            }
+             
+            Collections.shuffle(shotList);
+             
+            Shot shot = shotList.get(0);
+             
+            return shot;
+            }
+
+        // precreate 100 shots in a list
+        //make a constructor to take int row and column
+        //shuffle list (random shots) pull one at a time
+
         
         
     }
