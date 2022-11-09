@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Game {
     private ArrayList<IPlayer> players = new ArrayList<IPlayer>();
     private int currentPlayerIndex = 0;
+    private IPlayer winner;
     
     // note from John - you don't need the player1 and player2 lines... your players are being kept in the players collection
     // you DO need an instance variable to keep track of which index is the current player (maybe currentPlayerIndex?)
@@ -46,6 +47,7 @@ public class Game {
 
             //check ships
             if(otherP.allShipsAreSunk() == true){
+                winner = currentP;
                 break;
             }
             if(currentPlayerIndex == 0){
@@ -63,6 +65,8 @@ public class Game {
             System.out.println(result);
 
         }
+        endGame(winner);
+
         
         
     } 
@@ -112,6 +116,10 @@ public class Game {
         System.out.println("Player vs AI : Press '2'");
         String entry = ConsoleHelper.getInput("> ");
         return entry;
+    }
+
+    public void endGame(IPlayer winner){
+        System.out.println(winner.getName() + " IS THE WINNER!! ");
     }
 
 
