@@ -81,8 +81,11 @@ public class Player implements IPlayer {
     }
     @Override
     public boolean allShipsAreSunk() {
-        // TODO Auto-generated method stub
-        return false;
+        if(oceanGrid.getSunkShips().size() >= 5){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override

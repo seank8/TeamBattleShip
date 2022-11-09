@@ -44,13 +44,13 @@ public class Game {
             currentP.printTargetGrid();
             currentP.printOceanGrid();
             if(result == ShotResult.SUNK){
-                System.out.println("YOU" + result + "THEIR" + otherP.getRecentSunkShip());
+                System.out.println("YOU SUNK THEIR " + otherP.getRecentSunkShip() + "!!");
             }else{
                 System.out.println("YOU GOT A " + result);
             }
             
             //ask for player to press enter to go to next turn
-            ConsoleHelper.getInput(currentP.getName() + "Hit <enter> to go to next players turn: \n");
+            ConsoleHelper.getInput(currentP.getName() + " Press <enter> to go to next players turn: \n");
 
 
             //clear terminal 
@@ -67,12 +67,6 @@ public class Game {
             }else{
                 --currentPlayerIndex;
             }
-
-
-
-    
-            
-
 
             
 
