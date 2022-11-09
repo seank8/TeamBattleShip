@@ -44,7 +44,7 @@ public class Game {
             currentP.printOceanGrid();
             
             //ask for player to press enter to go to next turn
-            System.out.println(currentP.getName() + " Hit ENTER to go to next players turn");
+            ConsoleHelper.getInput(currentP.getName() + "Hit <enter> to go to next players turn: \n");
 
 
             //clear terminal 
