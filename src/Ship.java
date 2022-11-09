@@ -28,6 +28,11 @@ public class Ship {
         return coordinates;
     }
 
+    public String getName(){
+        String name = ship.toString();
+        return name;
+    }
+
 
     
 }

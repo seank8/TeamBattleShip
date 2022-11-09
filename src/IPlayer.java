@@ -16,4 +16,6 @@ public interface IPlayer {
     public void printOceanGrid();
     
     public void printTargetGrid();
+
+    public String getRecentSunkShip();
 }
