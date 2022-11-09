@@ -85,5 +85,14 @@ public class Player implements IPlayer {
         return false;
     }
 
+    @Override
+    public String getRecentSunkShip(){
+        List<String> sunkShips = oceanGrid.getSunkShips();
+
+        
+        String mostRecentSunkShip = sunkShips.get(sunkShips.size()-1);
+        return mostRecentSunkShip;
+
+    }
 }
                 

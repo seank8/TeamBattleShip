@@ -43,6 +43,11 @@ public class Game {
             //Print updated target grid and ocean grid
             currentP.printTargetGrid();
             currentP.printOceanGrid();
+            if(result == ShotResult.SUNK){
+                System.out.println("YOU" + result + "THEIR" + otherP.getRecentSunkShip());
+            }else{
+                System.out.println("YOU GOT A " + result);
+            }
             
             //ask for player to press enter to go to next turn
             ConsoleHelper.getInput(currentP.getName() + " Hit <enter> to go to next players turn: \n");
@@ -69,7 +74,7 @@ public class Game {
             
 
 
-            System.out.println(result);
+            
 
         }
         endGame(winner);

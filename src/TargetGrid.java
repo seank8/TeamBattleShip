@@ -95,7 +95,7 @@ public class TargetGrid extends Grid {
 
         //get state of cell, empyty or occupied
         CellState cs = cell.getState();
-        if (result == ShotResult.HIT) {
+        if (result == ShotResult.HIT || result == ShotResult.SUNK) {
             cell.setState(CellState.HIT);
         } else if (result == ShotResult.MISS){
             cell.setState(CellState.MISS);

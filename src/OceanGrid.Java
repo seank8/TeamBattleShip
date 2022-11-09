@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class OceanGrid extends Grid{
+    private List<String> sunkShips = new ArrayList<String>();
     
 
     public OceanGrid(){
@@ -86,6 +88,7 @@ public class OceanGrid extends Grid{
             ship.registerHit();
             cell.setState(CellState.HIT);
             if(ship.isSunk() == true){
+                sunkShips.add(ship.getName());
                 return ShotResult.SUNK;
             } else{
                 return ShotResult.HIT;
@@ -102,6 +105,11 @@ public class OceanGrid extends Grid{
             cell.setShip(ship);
         }
     }
+
+    public List<String> getSunkShips(){
+        return sunkShips;
+    }
+    
     
    
     
