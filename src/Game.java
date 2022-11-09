@@ -11,31 +11,61 @@ public class Game {
     public void play(){
         
         launchScreen();
-        
-        IPlayer currentP = players.get(currentPlayerIndex);
-        IPlayer otherP;
-        if(currentPlayerIndex == 0){
-            otherP = players.get(1);
-        }else{
-            otherP = players.get(0);
-        }
-        
-
-        
-
         for(IPlayer player: players){
             player.placeShips(); 
         }
- 
-        currentP.printTargetGrid();
-        currentP.printOceanGrid();
 
+        while(true){ // game loop
+
+            //start turn
+            
+            IPlayer currentP = players.get(currentPlayerIndex);
+
+            //send shot
+            currentP.printTargetGrid();
+            currentP.printOceanGrid();
+            System.out.println(currentP.getName() + " Take a Shot!");
+            Shot shot = currentP.takeshot();
+
+
+            //return response
+
+            IPlayer otherP;
+            if(currentPlayerIndex == 0){
+                otherP = players.get(1);
+            }else{
+                otherP = players.get(0);
+            }
+            ShotResult result = otherP.receiveShot(shot);
+
+            currentP.receiveShotResult(shot, result);
+
+
+            //Print updated target grid and ocean grid
+            //ask for player to press enter to go to next turn
+            //clear terminal 
+
+
+            //check ships
+            if(otherP.allShipsAreSunk() == true){
+                break;
+            }
+            if(currentPlayerIndex == 0){
+                ++currentPlayerIndex;
+            }else{
+                --currentPlayerIndex;
+            }
+
+
+
+    
+            
+
+
+            System.out.println(result);
+
+        }
         
-        Shot shot = currentP.takeshot();
-
-        ShotResult result = otherP.receiveShot(shot);
-
-        System.out.println(result);
         
     } 
 
@@ -85,7 +115,6 @@ public class Game {
         String entry = ConsoleHelper.getInput("> ");
         return entry;
     }
-
 
 
     

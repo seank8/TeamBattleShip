@@ -12,8 +12,8 @@ public class Ship {
         this.hitCount = 0;
         this.coordinates = coordinates;
     }
-    public int registerHit(){
-        return ++hitCount;         
+    public void registerHit(){
+        ++hitCount;         
     }
 
     public boolean isSunk(){

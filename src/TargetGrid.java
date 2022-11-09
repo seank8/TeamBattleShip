@@ -91,9 +91,16 @@ public class TargetGrid extends Grid {
     
 
     public void receiveShotResult(ShotResult result, Shot shot) {
-        if (result == ShotResult.HIT) {
+        Cell cell = getCell(shot);
 
+        //get state of cell, empyty or occupied
+        CellState cs = cell.getState();
+        if (result == ShotResult.HIT) {
+            cell.setState(CellState.HIT);
+        } else if (result == ShotResult.MISS){
+            cell.setState(CellState.MISS);
         }
+
     }
 
 }

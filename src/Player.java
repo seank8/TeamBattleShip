@@ -76,7 +76,7 @@ public class Player implements IPlayer {
     }
     @Override
     public void receiveShotResult(Shot shot, ShotResult result) {
-        // TODO Auto-generated method stub
+        targetGrid.receiveShotResult(result, shot);
         
     }
     @Override
