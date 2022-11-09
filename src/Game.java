@@ -42,9 +42,16 @@ public class Game {
 
 
             //Print updated target grid and ocean grid
+            currentP.printTargetGrid();
+            currentP.printOceanGrid();
+            
             //ask for player to press enter to go to next turn
-            //clear terminal 
+            System.out.println(currentP.getName() + " Hit ENTER to go to next players turn");
 
+
+            //clear terminal 
+            System.out.print("\033[H\033[2J");  
+            System.out.flush();  
 
             //check ships
             if(otherP.allShipsAreSunk() == true){
