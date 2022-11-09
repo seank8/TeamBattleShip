@@ -44,7 +44,7 @@ public class BOTPlayer implements IPlayer{
     @Override
     public Shot takeshot() { 
         
-        Shot shot = shotList.get(0);
+        shot = shotList.get(0);
         shotList.remove(0);
             
         return shot;
