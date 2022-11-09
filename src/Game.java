@@ -11,9 +11,7 @@ public class Game {
     public void play(){
         
         launchScreen();
-        for(IPlayer player: players){
-            player.placeShips(); 
-        }
+        players.forEach((player) -> player.placeShips());
 
         while(true){ // game loop
 
