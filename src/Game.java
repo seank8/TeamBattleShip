@@ -92,12 +92,19 @@ public class Game {
                 String name2 = ConsoleHelper.getInput("Please enter name for Player 2: ");
                 players.add(new Player(name2));
                 
-            }else{
-                String name1 = ConsoleHelper.getInput("Please enter name for Player: ");
-                players.add(new Player(name1));
+            } else {
+                if (entry2.equals("2")) {
+                    String entry3 = AIDifficultyMenu();
+                    if (entry3.equals("1")) {
+                        String name1 = ConsoleHelper.getInput("Please enter name for Player: ");
+                        players.add(new Player(name1));
 
-                String name2 = "JohnBot Infinity v2.3";
-                players.add(new BOTPlayer(name2));
+                        String name2 = "JohnBot Infinity v2.3";
+                        players.add(new BOTPlayer(name2)); 
+                    }
+                    
+                }
+                 
             }
         }else{
 
@@ -117,12 +124,22 @@ public class Game {
 
     }
 
-    public String newgameMenu(){
+    public String newgameMenu() {
         System.out.println("Player vs Player : Press '1'");
         System.out.println("Player vs AI : Press '2'");
         String entry = ConsoleHelper.getInput("> ");
         return entry;
     }
+    
+    public String AIDifficultyMenu() {
+        System.out.println("Choose a difficulty level to play against!");
+        System.out.println("Easy: Press '1'");
+        System.out.println("Medium : Press '2'");
+        System.out.println("Hard : Press '3'");
+        String entry = ConsoleHelper.getInput("> ");
+        return entry;
+    }
+
 
     public void endGame(IPlayer winner){
         System.out.println(winner.getName() + " IS THE WINNER!! ");
