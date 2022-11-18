@@ -9,7 +9,6 @@ public class BOTPlayer implements IPlayer{
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
     private List<Shot> shotList = new ArrayList<Shot>();
-    private ShotResult result;
    
    
     public BOTPlayer(String name){
@@ -60,10 +59,10 @@ public class BOTPlayer implements IPlayer{
     public ShotResult receiveShot(Shot shot) {
         return oceanGrid.receiveShot(shot);
     }
+
     @Override
     public void receiveShotResult(Shot shot, ShotResult result) {
         targetGrid.receiveShotResult(result, shot);
-        this.result = result;
         
     }
     @Override

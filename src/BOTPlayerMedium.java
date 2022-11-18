@@ -59,7 +59,7 @@ public class BOTPlayerMedium implements IPlayer{
         return oceanGrid.receiveShot(shot);
     }
     @Override
-    public void receiveShotResult(ShotResult result) {
+    public void receiveShotResult(Shot shot, ShotResult result) {
         targetGrid.receiveShotResult(result, shot);
         
     }
