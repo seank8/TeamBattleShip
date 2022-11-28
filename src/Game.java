@@ -102,7 +102,7 @@ public class Game {
 
                             String name2 = "JohnBot Infinity v2.3";
                     //update with medium AI 
-                            players.add(new BOTPlayer(name2));
+                            players.add(new BOTPlayerMedium(name2));
 
                         }
 

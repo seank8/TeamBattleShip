@@ -10,8 +10,8 @@ public class BOTPlayerMedium implements IPlayer{
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
     
-    private ShotResult lastResult;
-    private BOTMachine machine;
+    
+    private BOTMachine machine = new BOTMachine();
     
    
    
@@ -49,9 +49,7 @@ public class BOTPlayerMedium implements IPlayer{
         
         shot = machine.takeShot();
         return shot;
-        // precreate 100 shots in a list
-        //make a constructor to take int row and column
-        //shuffle list (random shots) pull one at a time
+        
         
     }
     
@@ -61,6 +59,7 @@ public class BOTPlayerMedium implements IPlayer{
     }
     @Override
     public void receiveShotResult(Shot shot, ShotResult result) {
+        machine.updateResult(result);
         targetGrid.receiveShotResult(result, shot);
         
     }

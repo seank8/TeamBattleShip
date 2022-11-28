@@ -9,6 +9,10 @@ public class Shot {
         row = rowForInput(humanValue);
         column = columnForInput(humanValue);
     }
+    public Shot(int row, int column){
+        this.row = row;
+        this.column = column;
+    }
 
     public int rowForInput(String value) throws Exception {
         String lowercased = value.toLowerCase();

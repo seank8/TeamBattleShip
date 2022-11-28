@@ -1,17 +1,35 @@
 public class BOTMachine {
     private State currentState = State.HUNT;
     private Event event = Event.OUT;
-    private BOTShooter shooter;
-    private ShotResult result;
+    private BOTShooter shooter = new BOTShooter();
+    
 
 
 
     public Shot takeShot(){
+        shooter.setState(currentState);
+        Shot shot = shooter.takeShot();
+        return shot;
 
     }
+    
 
     public void updateResult(ShotResult result){
-        this.result = result;
+
+        shooter.setResult(result);
+        if (result == ShotResult.HIT){
+            event = event.HIT;
+            currentState = nextState(currentState, event);
+        } else if (result == ShotResult.MISS){
+            event = event.MISS;
+            currentState = nextState(currentState, event);
+        } else if (result == ShotResult.SUNK){
+            event = event.SUNK;
+            currentState = nextState(currentState, event);
+        } else{
+            event = event.OUT;
+            currentState = nextState(currentState, event);
+        }
         
     }
 
@@ -73,7 +91,6 @@ public class BOTMachine {
                 case OUT:
                     change = State.BRACKET;
             }
-            
             
             
         }
