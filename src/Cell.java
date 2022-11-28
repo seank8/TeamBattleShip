@@ -1,10 +1,10 @@
 
 public class Cell {
-    private Ship ship;
+    private Ship ship = null;
     private CellState state;
 
-    public Cell(Ship ship, CellState state){
-        this.ship = ship;
+    public Cell( CellState state){
+        
         this.state = state;
 
     }

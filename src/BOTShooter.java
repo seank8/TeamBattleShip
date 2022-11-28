@@ -7,7 +7,7 @@ public class BOTShooter {
     private Shot huntShot;
     private Direction brackDirection;
     private Direction pursuitDirection;
-    private ShotResult result;
+    
     private List<Shot> shotList = new ArrayList<Shot>();
     private static List<Shot> shotsTaken = new ArrayList<Shot>(); 
     private State currentState;
@@ -25,9 +25,6 @@ public class BOTShooter {
     }
 
     
-    public void setResult(ShotResult result){
-        this.result = result;
-    }
 
     public Shot takeShot(){
         if (currentState == State.HUNT){
@@ -81,14 +78,18 @@ public class BOTShooter {
                 switch(direction){
                     case NORTH:
                         bracket = new Shot(initialRow - 1, initialColumn);
+                        break;
                     case SOUTH:
                         bracket = new Shot(initialRow + 1, initialColumn);
+                        break;
                     case EAST:
                         bracket = new Shot(initialRow, initialColumn + 1);
+                        break;
                     case WEST:
                         bracket = new Shot(initialRow, initialColumn - 1);
+                        break;
                 }
-                if(shotsTaken.contains(bracket) || bracket.getColumn() > 10 || bracket.getColumn() < 1 || bracket.getRow() > 10 || bracket.getRow() < 1){
+                if(shotsTaken.contains(bracket) == true || bracket.getColumn() > 9 || bracket.getColumn() < 0 || bracket.getRow() > 9 || bracket.getRow() < 0){
 
                 }else{
                     bracketShots.add(bracket);
@@ -130,6 +131,7 @@ public class BOTShooter {
                             pursuitShots.add(listShot);
                         }
                     }
+                    break;
                     
                 case SOUTH:
                     for(int i = 1; i < 4; i++){
@@ -140,6 +142,7 @@ public class BOTShooter {
                             pursuitShots.add(listShot);
                         }
                     }
+                    break;
                     
                 case EAST:
                     for(int i = 1; i < 4; i++){
@@ -150,6 +153,7 @@ public class BOTShooter {
                             pursuitShots.add(listShot);
                         }
                     }
+                    break;
                     
                 case WEST:
                     for(int i = 1; i < 4; i++){
@@ -160,13 +164,14 @@ public class BOTShooter {
                             pursuitShots.add(listShot);
                         }
                     }
+                    break;
             }
 
         }
 
         public boolean validShot(Shot shot){
 
-            if(shotsTaken.contains(shot) || shot.getColumn() > 10 || shot.getColumn() < 1 || shot.getRow() > 10 || shot.getRow() < 1){
+            if(shotsTaken.contains(shot) == true || shot.getColumn() > 10 || shot.getColumn() < 1 || shot.getRow() > 10 || shot.getRow() < 1){
                 return false;
             } else{
                 return true;
@@ -200,6 +205,7 @@ public class BOTShooter {
                             reverseList.add(addReverse);
                         }
                     }
+                    break;
                     
                 case SOUTH:
                     for(int i = 1; i < 4; i++){
@@ -210,6 +216,7 @@ public class BOTShooter {
                             reverseList.add(addReverse);
                         }
                     }
+                    break;
                     
                 case EAST:
                     for(int i = 1; i < 4; i++){
@@ -220,6 +227,7 @@ public class BOTShooter {
                             reverseList.add(addReverse);
                         }
                     }
+                    break;
                     
                 case WEST:
                     for(int i = 1; i < 4; i++){
@@ -230,13 +238,14 @@ public class BOTShooter {
                             reverseList.add(addReverse);
                         }
                     }
+                    break;
             }
 
 
         }
         public boolean validShot(Shot shot){
 
-            if(shotsTaken.contains(shot) || shot.getColumn() > 10 || shot.getColumn() < 1 || shot.getRow() > 10 || shot.getRow() < 1){
+            if(shotsTaken.contains(shot) == true || shot.getColumn() > 10 || shot.getColumn() < 1 || shot.getRow() > 10 || shot.getRow() < 1){
                 return false;
             } else{
                 return true;

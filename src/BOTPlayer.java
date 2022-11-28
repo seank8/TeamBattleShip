@@ -10,6 +10,7 @@ public class BOTPlayer implements IPlayer{
     protected TargetGrid targetGrid = new TargetGrid();
     private List<Shot> shotList = new ArrayList<Shot>();
    
+    protected ShipBuilder builder;
    
     public BOTPlayer(String name){
         this.name = name;

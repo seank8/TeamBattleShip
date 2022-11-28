@@ -16,18 +16,18 @@ public class BOTMachine {
 
     public void updateResult(ShotResult result){
 
-        shooter.setResult(result);
+
         if (result == ShotResult.HIT){
-            event = event.HIT;
+            event = Event.HIT;
             currentState = nextState(currentState, event);
         } else if (result == ShotResult.MISS){
-            event = event.MISS;
+            event = Event.MISS;
             currentState = nextState(currentState, event);
         } else if (result == ShotResult.SUNK){
-            event = event.SUNK;
+            event = Event.SUNK;
             currentState = nextState(currentState, event);
         } else{
-            event = event.OUT;
+            event = Event.OUT;
             currentState = nextState(currentState, event);
         }
         
@@ -39,58 +39,66 @@ public class BOTMachine {
             case HUNT: switch(e){
                 case HIT:
                     change = State.BRACKET;
-                   
+                    break;
                 case MISS:
                     change = State.HUNT;
-                
+                    break;
                 case SUNK:
                     change = State.HUNT;
-                
+                    break;
                 case OUT:
                     change = State.HUNT;
-                
+                    break;
             }
+            break;
             case BRACKET: switch(e){
                 case HIT:
                     change = State.PURSUIT;
-                    
+                    break;
                 case MISS:
                     change = State.BRACKET;
-                
+                    break;
                 case SUNK:
                     change = State.HUNT;
-                
+                    break;
                 case OUT:
                     change = State.HUNT;
+                    break;
             }
+            break;
                 
             
             case PURSUIT: switch(e){
                 case HIT:
                     change = State.PURSUIT;
-                    
+                    break;
                 case MISS:
                     change = State.REVERSE;
-                
+                    break;
                 case SUNK:
                     change = State.HUNT;
-                
+                    break;
                 case OUT:
                     change = State.REVERSE;
+                    break;
             }
+            break;
             case REVERSE: switch(e){
                 case HIT:
                     change = State.REVERSE;
+                    break;
                     
                 case MISS:
                     change = State.BRACKET;
-                
+                    break;
                 case SUNK:
                     change = State.HUNT;
-                
+                    break;
                 case OUT:
                     change = State.BRACKET;
+                    break;
             }
+            break;
             
             
         }

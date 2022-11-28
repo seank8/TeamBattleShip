@@ -10,6 +10,7 @@ public class BOTPlayerMedium implements IPlayer{
     protected OceanGrid oceanGrid = new OceanGrid();
     protected TargetGrid targetGrid = new TargetGrid();
     
+    protected ShipBuilder builder;
     
     private BOTMachine machine = new BOTMachine();
     
@@ -39,7 +40,7 @@ public class BOTPlayerMedium implements IPlayer{
     
     @Override
     public void placeShips(){
-        ShipBuilder builder = new ShipBuilder();
+        builder = new ShipBuilder();
         for (Ship ship : builder.getShips()) {
             oceanGrid.setShipCells(ship);
         }

@@ -38,7 +38,7 @@ public class Player implements IPlayer {
    
     @Override
     public void placeShips(){
-        ShipBuilder builder = new ShipBuilder();
+        builder = new ShipBuilder();
         for (Ship ship : builder.getShips()) {
             oceanGrid.setShipCells(ship);
         }
